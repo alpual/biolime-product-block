@@ -1,9 +1,13 @@
+const { __ } = wp.i18n; // Import __() from wp.i18n
+const { InspectorControls } = wp.editor;
+const {
+	SelectControl,
+	ServerSideRender,
+	PanelBody,
+} = wp.components;
+const { Component, Fragment } = wp.element;
 
-const { InspectorControls } = wp.blocks;
-const { SelectControl } = wp.components;
-const { Component } = wp.element;
-
-class BioLimeProductSelector extends Component {
+export default class BioLimeProductSelector extends Component {
 	static getInitialState( selectedPost ) {
 		return {
 			posts: [],
@@ -20,20 +24,26 @@ class BioLimeProductSelector extends Component {
 	}
 
 	render() {
+		const { attributes, categoriesList, isSelected, setAttributes } = this.props;
 		// Options to hold all loaded posts. For now, just the default.
 		const options = [ { value: 0, label: __( 'Select a Product' ) } ];
-		return [
-			// If we are focused on this block, create the inspector controls.
-			!! this.props.isSelected && ( <InspectorControls key="inspector">
+		const inspectorControls = isSelected &&
+			<InspectorControls key="inspector">
+				This is a BioLime Product
 				<SelectControl
 					// Selected value.
 					value={ this.props.attributes.selectedPost }
 					label={ __( 'Select a Product' ) }
 					options={ options } />
 			</InspectorControls>
-			),
-			'Load Post Placeholder',
-		];
+		;
+
+		return ( [
+			inspectorControls,
+			<ServerSideRender key="render"
+				block="biolime/block-biolime-product-block"
+				attributes={ this.props.attributes }
+			/>,
+		] );
 	}
 }
-export default BioLimeProductSelector;
