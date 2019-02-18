@@ -55,10 +55,8 @@ registerBlockType( 'biolime/block-biolime-product-block', {
 	],
 
 	attributes: {
-		content: {
-			type: 'string',
-			source: 'html',
-			selector: 'p',
+		selectedProduct: {
+			type: 'number',
 		},
 	},
 
