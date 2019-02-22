@@ -78,3 +78,5 @@ function biolime_block_category( $categories, $post ) {
 add_filter( 'block_categories', 'biolime_block_category', 10, 2);
 
 require_once( 'block/block.php' );
+
+

@@ -30,9 +30,22 @@ export default class BioLimeProductSelector extends Component {
 	}
 
 	getOptions() {
-		return ( new wp.api.collections.Posts() )
+		const BLProduct = wp.api.models.Post.extend( {
+			urlRoot: wpApiSettings.root + 'wp/v2/bl_product',
+			defaults: {
+				type: 'bl_product',
+			},
+		} );
+		const BLProducts = wp.api.collections.Posts.extend( {
+			url: wpApiSettings.root + 'wp/v2/bl_product',
+			model: BLProduct,
+		} );
+		const someProducts = new BLProducts;
+		someProducts
 			.fetch()
 			.then( ( posts ) => {
+				//const products = posts[ 'bl_product' ];
+				//console.dir( products );
 				if ( posts && 0 !== this.state.selectedProduct ) {
 					// If we have a selected Post, find that post and add it.
 					const post = posts.find( ( item ) => {
