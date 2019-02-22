@@ -55,7 +55,7 @@ registerBlockType( 'biolime/block-biolime-product-block', {
 	],
 
 	attributes: {
-		selectedProduct: {
+		selectedCustomPost: {
 			type: 'number',
 		},
 	},

@@ -1,9 +1,9 @@
 <?php
 // block.php
 
-function biolime_render_block_latest_post( $attributes, $content ) {
+function biolime_render_block_custom_post( $attributes, $content ) {
     if (sizeof($attributes) > 0){
-        $post_id = $attributes['selectedProduct'];
+        $post_id = $attributes['selectedCustomPost'];
         $product_block = sprintf(
             'Post: <a class="wp-block-biolime-product-block" href="%1$s">%2$s</a>',
             esc_url( get_permalink( $post_id ) ),
@@ -17,9 +17,9 @@ function biolime_render_block_latest_post( $attributes, $content ) {
 
 register_block_type( 'biolime/block-biolime-product-block', array(
     'attributes' => [
-        'selectedProduct' => [
+        'selectedCustomPost' => [
             'type' => 'number'
         ]
     ],
-    'render_callback' => 'biolime_render_block_latest_post',
+    'render_callback' => 'biolime_render_block_custom_post',
 ) );
