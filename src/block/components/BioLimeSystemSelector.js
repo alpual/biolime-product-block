@@ -3,16 +3,16 @@ import CustomPostSelector from './CustomPostSelector';
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { Component } = wp.element;
 const thisPostType = {
-	title: __( 'BioLime Solution' ),
-	slug: __( 'bl_solution' ),
-	namespacedBlockDescriptor: 'biolime/block-biolime-solution-block',
+	title: __( 'BioLime System' ),
+	slug: __( 'bl_system' ),
+	namespacedBlockDescriptor: 'biolime/block-biolime-system-block',
 	name: {
-		singular: __( 'Solution' ),
-		plural: __( 'Solution' ),
+		singular: __( 'System' ),
+		plural: __( 'Systems' ),
 	},
 };
 
-export default class BioLimeProductSelector extends Component {
+export default class BioLimeSystemSelector extends Component {
 	constructor( props ) {
 		super( ...arguments );
 		this.props = props;

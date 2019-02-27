@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @uses {wp-editor} for WP editor styles.
  * @since 1.0.0
  */
-function biolime_product_block_cgb_block_assets() { // phpcs:ignore
+function biolime_block_assets() { // phpcs:ignore
 	// Styles.
 	wp_enqueue_style(
 		'biolime_product_block-cgb-style-css', // Handle.
@@ -30,7 +30,7 @@ function biolime_product_block_cgb_block_assets() { // phpcs:ignore
 }
 
 // Hook: Frontend assets.
-add_action( 'enqueue_block_assets', 'biolime_product_block_cgb_block_assets' );
+add_action( 'enqueue_block_assets', 'biolime_block_assets' );
 
 /**
  * Enqueue Gutenberg block assets for backend editor.
@@ -77,6 +77,7 @@ function biolime_block_category( $categories, $post ) {
 }
 add_filter( 'block_categories', 'biolime_block_category', 10, 2);
 
-require_once( 'block/block.php' );
+require_once( 'block/biolimeProduct.php' );
+require_once( 'block/biolimeSystem.php' );
 
 

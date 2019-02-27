@@ -96,7 +96,7 @@ export default class CustomPostSelector extends Component {
 		let output = __( 'Loading ' + this.props.postType.name.singular );
 		if ( this.state.posts.length > 0 ) {
 			const postDescription = ( this.state.posts.length === 1 ? this.props.postType.name.singular : this.props.postType.name.plural );
-			const loading = __( 'We have %d ' + postDescription + '. Choose one.' );
+			const loading = __( 'We have %d ' + postDescription + '. Choose one from the block settings to the right.' );
 			output = loading.replace( '%d', this.state.posts.length );
 			this.state.posts.forEach( ( post ) => {
 				options.push( { value: post.id, label: post.title.rendered } );
