@@ -9,7 +9,7 @@
 //  Import CSS.
 import './style.scss';
 import './editor.scss';
-import BioLimeCustomPostSelector from './components/BioLimeCustomPostSelector';
+import BioLimeProductSelector from './components/BioLimeProductSelector';
 
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
@@ -68,7 +68,7 @@ registerBlockType( 'biolime/block-biolime-product-block', {
 	 *
 	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	 */
-	edit: BioLimeCustomPostSelector,
+	edit: BioLimeProductSelector,
 
 	/**
 	 * The save function defines the way in which the different attributes should be combined
